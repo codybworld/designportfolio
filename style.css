@@ -22,11 +22,20 @@ body {
 /* Full-page background image */
 body {
   background-image: url('images/space.webp');
-  background-size: cover;        /* Makes it fill the screen */
-  background-position: center;   /* Centers the image */
-  background-repeat: no-repeat;  /* Prevents tiling */
-  background-attachment: fixed;  /* Optional: makes it stay in place when scrolling */
-  color: #000;                   /* Keeps text black over the background */
+  background-size: contain;           /* keep full image visible */
+  background-repeat: no-repeat;
+  background-position: center top;    /* centers image, prevents weird cropping */
+  background-attachment: fixed;       /* adds subtle parallax effect on desktop */
+  background-color: #111;             /* fallback color for sides/padding */
+}
+
+/* On mobile, background-attachment: fixed can be buggy */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;           /* slightly zoom, but not too much */
+    background-position: center center;
+  }
 }
 
 /* Header text */
