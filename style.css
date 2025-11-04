@@ -244,3 +244,21 @@ header h2 {
     padding: 10px;
   }
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('images/space.jpg'); /* your file path */
+  background-size: cover;        /* makes it fill the screen */
+  background-position: center;   /* keeps it centered */
+  background-repeat: no-repeat;  /* prevents tiling */
+  background-attachment: fixed;  /* makes it stay still when scrolling (desktop only) */
+  height: 100vh;                 /* ensures it covers full viewport height */
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* fixes zoom issue on mobile */
+    background-position: top center;
+  }
+}
