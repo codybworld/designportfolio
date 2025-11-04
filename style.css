@@ -13,24 +13,33 @@ body, h1, h2, h3, h4, h5, h6, p, a {
   text-align: center;
 }
 
-/* Full-page background */
+/* Full-page background (desktop + mobile safe) */
 body {
-  background-image: url('images/space.webp');
-  background-size: cover;          /* fill screen */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('images/space.webp'); /* your image */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;    /* parallax effect (desktop) */
-  background-color: #111;          /* fallback */
-  height: 100vh;
+  background-attachment: fixed; /* fixed effect (works great on desktop) */
+  background-color: #000; /* fallback fill */
   overflow-x: hidden;
   padding: 40px 20px;
 }
 
-/* Mobile background fix */
+/* Mobile-friendly background fix */
 @media (max-width: 768px) {
   body {
-    background-attachment: scroll;
+    background-attachment: scroll; /* prevents iOS background jump */
+    background-size: cover;
     background-position: top center;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+
+  html, body {
+    height: auto; /* allow body to grow with content */
   }
 }
 
